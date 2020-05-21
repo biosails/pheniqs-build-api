@@ -6,7 +6,7 @@ Of particular interest is the configuration for building a [statically linked](h
 
 Before you use `pheniqs-build-api.py` you will need to have a C/C++ compiler available on your system. For Ubuntu Linux that usually invoves installing the `build-essential` package:
 
->```shell
+```shell
 apt-get install -y build-essential
 ```
 
@@ -16,7 +16,7 @@ while on MacOS you will need to install [Xcode](https://apps.apple.com/us/app/xc
 
 For example to build a static binary of the latest trunk Pheniqs code from github you can use the `trunk_static.json` configuration:
 
->```shell
+```shell
 % ./pheniqs-build-api.py build build/trunk_static.json
 INFO:Package:unpacking zlib 1.2.11
 INFO:Package:configuring make environment zlib 1.2.11
@@ -44,7 +44,7 @@ INFO:Package:installing with make pheniqs 2.0-trunk
 
 When execution is finished you may inspect your virtual root in the `bin/trunk_static/install`. Statically linked builds made with `pheniqs-build-api.py` will also report the versions of all built in libraries.
 
->```shell
+```shell
 % ./bin/trunk_static/install/bin/pheniqs --version
 pheniqs version 2.0.4
 zlib 1.2.11
@@ -57,7 +57,7 @@ htslib 1.9
 
 You can check that your binary indeed does not link against any of the dependencies dynamically with `ldd` on Linux:
 
->```shell
+```shell
 % ldd pheniqs
 	linux-vdso.so.1 =>  (0x00007ffff3300000)
 	libstdc++.so.6 => /usr/lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007f6910e2d000)
@@ -70,7 +70,7 @@ You can check that your binary indeed does not link against any of the dependenc
 
 or `otool` on MacOs:
 
->```shell
+```shell
 % otool -L ./bin/trunk_static/install/bin/pheniqs
 ./bin/trunk_static/install/bin/pheniqs:
 	/usr/lib/libc++.1.dylib (compatibility version 1.0.0, current version 400.9.4)
