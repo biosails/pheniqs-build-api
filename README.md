@@ -44,7 +44,7 @@ INFO:Package:installing with make pheniqs 2.0-trunk
 
 When execution is finished you may inspect your virtual root in the `bin/trunk_static/install`. Statically linked builds made with `pheniqs-build-api.py` will also report the versions of all built in libraries.
 
-```shell
+```Shell
 % ./bin/trunk_static/install/bin/pheniqs --version
 pheniqs version 2.0.4
 zlib 1.2.11
