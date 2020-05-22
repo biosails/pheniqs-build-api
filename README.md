@@ -68,7 +68,7 @@ You can check that your binary indeed does not link against any of the dependenc
 	/lib64/ld-linux-x86-64.so.2 (0x00007f69111af000)
 ```
 
-or `otool` on MacOs:
+or `otool` on MacOS:
 
 ```zsh
 % otool -L ./bin/trunk_static/install/bin/pheniqs

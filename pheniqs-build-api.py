@@ -44,128 +44,41 @@ log_levels = {
     'error': logging.ERROR,
     'critical': logging.CRITICAL
 }
-configuration = {
-    "implementation": {
-        "build api": {
-            "interface": {
-                "argument": [
-                    "version",
-                    "verbosity"
+interface_configuration = {
+    "interface": {
+        "argument": [
+            "version",
+            "verbosity"
+        ],
+        "instruction": {
+            "description": "Lior Galanti lior.galanti@nyu.edu NYU Center for Genomics & Systems Biology"
+        },
+        "prototype": {
+            "preset": {
+                "flag": [
+                    "-p",
+                    "--preset"
                 ],
-                "instruction": {
-                    "description": "Lior Galanti lior.galanti@nyu.edu NYU Center for Genomics & Systems Biology"
-                },
-                "prototype": {
-                    "filter": {
-                        "flag": [
-                            "-f",
-                            "--filter"
-                        ],
-                        "parameter": {
-                            "help": "list of packages",
-                            "metavar": "PACKAGE",
-                            "nargs": "*"
-                        }
-                    },
-                    "force": {
-                        "flag": [
-                            "-F",
-                            "--force"
-                        ],
-                        "parameter": {
-                            "help": "list of packages to force",
-                            "metavar": "PACKAGE",
-                            "nargs": "*"
-                        }
-                    },
-                    "path": {
-                        "flag": [
-                            "path"
-                        ],
-                        "parameter": {
-                            "help": "path",
-                            "metavar": "PATH"
-                        }
-                    }
-                },
-                "section": {
-                    "action": [
-                        {
-                            "argument": [
-                                "filter",
-                                "path"
-                            ],
-                            "implementation": "clean",
-                            "instruction": {
-                                "help": "clean build root environment",
-                                "name": "clean"
-                            }
-                        },
-                        {
-                            "argument": [
-                                "filter",
-                                "path"
-                            ],
-                            "implementation": "build",
-                            "instruction": {
-                                "help": "build build root environment",
-                                "name": "build"
-                            }
-                        },
-                        {
-                            "argument": [
-                                "filter",
-                                "path"
-                            ],
-                            "implementation": "clean.package",
-                            "instruction": {
-                                "help": "delete exploded package",
-                                "name": "clean.package"
-                            }
-                        }
-                    ],
-                    "instruction": {
-                        "description": "",
-                        "dest": "action",
-                        "help": None,
-                        "metavar": "ACTION",
-                        "title": "pipeline operations"
-                    }
+                "parameter": {
+                    "dest": "preset",
+                    "help": "build preset",
+                    "metavar": "PRESET",
+                    "default": "trunk",
+                    "choices": [
+                        "trunk",
+                        "trunk-static"
+                    ]
                 }
             },
-            "package implementation": {
-                "bcl2fastq": {
-                    "job implementation": "pheniqs-build-api.Bcl2Fastq"
-                },
-                "bz2": {
-                    "job implementation": "pheniqs-build-api.BZip2"
-                },
-                "htslib": {
-                    "job implementation": "pheniqs-build-api.Make"
-                },
-                "libdeflate": {
-                    "job implementation": "pheniqs-build-api.LibDeflate"
-                },
-                "pheniqs": {
-                    "job implementation": "pheniqs-build-api.Make"
-                },
-                "rapidjson": {
-                    "job implementation": "pheniqs-build-api.RapidJSON"
-                },
-                "samtools": {
-                    "job implementation": "pheniqs-build-api.SAMTools"
-                },
-                "xz": {
-                    "job implementation": "pheniqs-build-api.Make"
-                },
-                "zlib": {
-                    "job implementation": "pheniqs-build-api.Make"
+            "path": {
+                "flag": [
+                    "--config"
+                ],
+                "parameter": {
+                    "help": "path",
+                    "metavar": "PATH"
                 }
-            }
-        }
-    },
-    "interface": {
-        "prototype": {
+            },
             "verbosity": {
                 "flag": [
                     "-v",
@@ -193,6 +106,232 @@ configuration = {
                     "version": "%[prog]s 1.0"
                 }
             }
+        },
+        "section": {
+            "action": [
+                {
+                    "argument": [
+                        "path",
+                        "preset"
+                    ],
+                    "implementation": "clean",
+                    "instruction": {
+                        "help": "clean build root environment",
+                        "name": "clean"
+                    }
+                },
+                {
+                    "argument": [
+                        "path",
+                        "preset"
+                    ],
+                    "implementation": "build",
+                    "instruction": {
+                        "help": "build build root environment",
+                        "name": "build"
+                    }
+                }
+            ],
+            "instruction": {
+                "description": "",
+                "dest": "action",
+                "help": None,
+                "metavar": "ACTION",
+                "title": "pipeline operations"
+            }
+        }
+    },
+    "package implementation": {
+        "bcl2fastq": {
+            "job implementation": "pheniqs-build-api.Bcl2Fastq"
+        },
+        "bz2": {
+            "job implementation": "pheniqs-build-api.BZip2"
+        },
+        "htslib": {
+            "job implementation": "pheniqs-build-api.Make"
+        },
+        "libdeflate": {
+            "job implementation": "pheniqs-build-api.LibDeflate"
+        },
+        "pheniqs": {
+            "job implementation": "pheniqs-build-api.Make"
+        },
+        "rapidjson": {
+            "job implementation": "pheniqs-build-api.RapidJSON"
+        },
+        "samtools": {
+            "job implementation": "pheniqs-build-api.SAMTools"
+        },
+        "xz": {
+            "job implementation": "pheniqs-build-api.Make"
+        },
+        "zlib": {
+            "job implementation": "pheniqs-build-api.Make"
+        }
+    },
+    "preset": {
+        "trunk": {
+            "download prefix": "~/.pheniqs/download",
+            "home": "bin/trunk",
+            "package": [
+                {
+                    "make clean target": "distclean",
+                    "name": "zlib",
+                    "remote url": [
+                        "https://zlib.net/zlib-1.2.11.tar.gz",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/zlib-1.2.11.tar.gz"
+                    ],
+                    "sha1": "e6d119755acdf9104d7ba236b1242696940ed6dd"
+                },
+                {
+                    "include prefix in make": True,
+                    "name": "bz2",
+                    "remote url": [
+                        "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/bzip2-1.0.8.tar.gz"
+                    ],
+                    "sha1": "bf7badf7e248e0ecf465d33c2f5aeec774209227",
+                    "version": "1.0.8"
+                },
+                {
+                    "name": "xz",
+                    "remote url": [
+                        "https://tukaani.org/xz/xz-5.2.4.tar.bz2",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/xz-5.2.4.tar.bz2"
+                    ],
+                    "sha1": "50ad451279404fb5206e23c7b1ba9c4aa858c994"
+                },
+                {
+                    "make build optional": [
+                        "CC=gcc"
+                    ],
+                    "name": "libdeflate",
+                    "remote filename": "libdeflate-1.0.tar.gz",
+                    "remote url": [
+                        "https://github.com/ebiggers/libdeflate/archive/v1.0.tar.gz",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/libdeflate-1.0.tar.gz"
+                    ],
+                    "sha1": "17da81b2a058906f087e797fc69399c606a2c011",
+                    "version": "1.0"
+                },
+                {
+                    "name": "htslib",
+                    "remote url": [
+                        "https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/htslib-1.9.tar.bz2"
+                    ],
+                    "sha1": "21be5187203df30637dda2e1133cae2e833ef050"
+                },
+                {
+                    "name": "rapidjson",
+                    "remote filename": "rapidjson-1.1.0.tar.gz",
+                    "remote url": "https://github.com/miloyip/rapidjson/archive/v1.1.0.tar.gz",
+                    "sha1": "a3e0d043ad3c2d7638ffefa3beb30a77c71c869f",
+                    "version": "1.1.0"
+                },
+                {
+                    "include prefix in make": True,
+                    "make build optional": [
+                        "PHENIQS_ZLIB_VERSION=1.2.11",
+                        "PHENIQS_BZIP2_VERSION=1.0.8",
+                        "PHENIQS_XZ_VERSION=5.2.4",
+                        "PHENIQS_LIBDEFLATE_VERSION=1.0",
+                        "PHENIQS_HTSLIB_VERSION=1.9",
+                        "PHENIQS_RAPIDJSON_VERSION=1.1.0"
+                    ],
+                    "name": "pheniqs",
+                    "remote filename": "pheniqs-HEAD.zip",
+                    "remote url": "https://codeload.github.com/biosails/pheniqs/zip/HEAD",
+                    "version": "2.0-trunk"
+                }
+            ]
+        },
+        "trunk_static": {
+            "download prefix": "~/.pheniqs/download",
+            "home": "bin/trunk_static",
+            "package": [
+                {
+                    "make clean target": "distclean",
+                    "name": "zlib",
+                    "remote url": [
+                        "https://zlib.net/zlib-1.2.11.tar.gz",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/zlib-1.2.11.tar.gz"
+                    ],
+                    "sha1": "e6d119755acdf9104d7ba236b1242696940ed6dd"
+                },
+                {
+                    "include prefix in make": True,
+                    "name": "bz2",
+                    "remote url": [
+                        "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/bzip2-1.0.8.tar.gz"
+                    ],
+                    "sha1": "bf7badf7e248e0ecf465d33c2f5aeec774209227",
+                    "version": "1.0.8"
+                },
+                {
+                    "configure optional": [
+                        "--enable-static"
+                    ],
+                    "name": "xz",
+                    "remote url": [
+                        "https://tukaani.org/xz/xz-5.2.4.tar.bz2",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/xz-5.2.4.tar.bz2"
+                    ],
+                    "sha1": "50ad451279404fb5206e23c7b1ba9c4aa858c994"
+                },
+                {
+                    "make build optional": [
+                        "CC=gcc"
+                    ],
+                    "name": "libdeflate",
+                    "remote filename": "libdeflate-1.0.tar.gz",
+                    "remote url": [
+                        "https://github.com/ebiggers/libdeflate/archive/v1.0.tar.gz",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/libdeflate-1.0.tar.gz"
+                    ],
+                    "sha1": "17da81b2a058906f087e797fc69399c606a2c011",
+                    "version": "1.0"
+                },
+                {
+                    "configure optional": [
+                        "--disable-libcurl"
+                    ],
+                    "name": "htslib",
+                    "remote url": [
+                        "https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/htslib-1.9.tar.bz2"
+                    ],
+                    "sha1": "21be5187203df30637dda2e1133cae2e833ef050"
+                },
+                {
+                    "name": "rapidjson",
+                    "remote filename": "rapidjson-1.1.0.tar.gz",
+                    "remote url": [
+                        "https://github.com/miloyip/rapidjson/archive/v1.1.0.tar.gz",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/rapidjson-1.1.0.tar.gz"
+                    ],
+                    "sha1": "a3e0d043ad3c2d7638ffefa3beb30a77c71c869f",
+                    "version": "1.1.0"
+                },
+                {
+                    "include prefix in make": True,
+                    "make build optional": [
+                        "with-static=1",
+                        "PHENIQS_ZLIB_VERSION=1.2.11",
+                        "PHENIQS_BZIP2_VERSION=1.0.8",
+                        "PHENIQS_XZ_VERSION=5.2.4",
+                        "PHENIQS_LIBDEFLATE_VERSION=1.0",
+                        "PHENIQS_HTSLIB_VERSION=1.9",
+                        "PHENIQS_RAPIDJSON_VERSION=1.1.0"
+                    ],
+                    "name": "pheniqs",
+                    "remote filename": "pheniqs-HEAD.zip",
+                    "remote url": "https://codeload.github.com/biosails/pheniqs/zip/HEAD",
+                    "version": "2.0-trunk"
+                }
+            ]
         }
     }
 }
@@ -311,7 +450,6 @@ class CommandLineParser(object):
     def __init__(self, name):
         self.ontology = {
             'name': name,
-            'configuration path': os.path.realpath(os.path.join(os.path.dirname(__file__), '../configuration/command.json')),
             'interface': {},
             'instruction': {}
         }
@@ -319,16 +457,7 @@ class CommandLineParser(object):
         self.load()
 
     def load(self):
-        if 'implementation' in configuration:
-            if self.ontology['name'] in configuration['implementation']:
-                if 'interface' in configuration:
-                    self.ontology['interface'] = merge(configuration['interface'], self.ontology['interface'])
-                self.ontology = merge(self.ontology, configuration['implementation'][self.ontology['name']])
-            else:
-                raise BadConfigurationError('unknown implementation {}'.format(self.ontology['name']))
-        else:
-            raise BadConfigurationError('missing implementation element')
-
+        self.ontology = merge(self.ontology, interface_configuration)
         self.parser = ArgumentParser(**self.interface['instruction'])
 
         # evaluate the type for each prototype
@@ -395,7 +524,6 @@ class CommandLineParser(object):
     def configuration(self):
         configuration = deepcopy(self.ontology)
         del configuration['interface']
-        del configuration['configuration path']
         return configuration
 
     @property
@@ -1111,7 +1239,6 @@ class PackageManager(object):
                 'home': '~/.pheniqs',
                 'platform': platform.system(),
                 'current working directoy': os.getcwd(),
-                'filter': None,
             },
         }
         self.ontology = merge(default, ontology)
@@ -1189,98 +1316,102 @@ class PackageManager(object):
     def lib_prefix(self):
         return self.instruction['lib prefix']
 
-    @property
-    def filter(self):
-        return self.instruction['filter']
-
-    @property
-    def force(self):
-        return self.instruction['force']
-
     def execute(self):
+        preset = None
         if 'path' in self.instruction:
-            self.instruction['path'] = os.path.abspath(os.path.realpath(os.path.expanduser(os.path.expandvars(self.instruction['path']))))
-            if os.path.exists(self.instruction['path']):
+            resolved = os.path.abspath(os.path.realpath(os.path.expanduser(os.path.expandvars(self.instruction['path']))))
+            if os.path.exists(resolved):
                 self.log.debug('loading %s', self.instruction['path'])
-                with io.open(self.instruction['path'], 'rb') as file:
-                    ontology = json.loads(file.read().decode('utf8'))
-                    for key in [
-                        'home',
-                        'platform',
-                        'package',
-                        'cache path',
-                        'install prefix',
-                        'download prefix',
-                        'package prefix',
-                        'bin prefix',
-                        'include prefix',
-                        'lib prefix',
-                    ]:
-                        if key not in ontology: ontology[key] = None
+                with io.open(resolved, 'rb') as file:
+                    preset = json.loads(file.read().decode('utf8'))
+                    preset['document sha1 digest'] = hashlib.sha1(resolved.encode('utf8')).hexdigest()
+            else:
+                raise CommandFailedError('failed to open {}'.format(self.instruction['path']))
 
-                    if not ontology['home']:            ontology['home'] =              '~/.pheniqs'
-                    if not ontology['platform']:        ontology['platform'] =          platform.system()
-                    if not ontology['cache path']:      ontology['cache path'] =        os.path.join(ontology['home'], 'cache.json')
-                    if not ontology['install prefix']:  ontology['install prefix'] =    os.path.join(ontology['home'], 'install')
-                    if not ontology['download prefix']: ontology['download prefix'] =   os.path.join(ontology['home'], 'download')
-                    if not ontology['package prefix']:  ontology['package prefix'] =    os.path.join(ontology['home'], 'package')
-                    if not ontology['bin prefix']:      ontology['bin prefix'] =        os.path.join(ontology['install prefix'], 'bin')
-                    if not ontology['include prefix']:  ontology['include prefix'] =    os.path.join(ontology['install prefix'], 'include')
-                    if not ontology['lib prefix']:      ontology['lib prefix'] =        os.path.join(ontology['install prefix'], 'lib')
+        elif 'preset' in self.instruction:
+            if self.instruction['preset'] in self.ontology['preset'].keys():
+                preset = self.ontology['preset'][self.instruction['preset']]
+                preset['document sha1 digest'] = hashlib.sha1(self.instruction['preset'].encode('utf8')).hexdigest()
+            else:
+                raise CommandFailedError('preset {} does not exist'.format(self.ontology['preset']))
+        else:
+            raise CommandFailedError('uknown preset to execute')
 
-                    for path in [
-                        'home',
-                        'cache path',
-                        'install prefix',
-                        'download prefix',
-                        'package prefix',
-                        'bin prefix',
-                        'include prefix',
-                        'lib prefix',
-                    ]:
-                        ontology[path] = os.path.abspath(os.path.expanduser(os.path.expandvars(ontology[path])))
+        for key in [
+            'home',
+            'platform',
+            'package',
+            'cache path',
+            'install prefix',
+            'download prefix',
+            'package prefix',
+            'bin prefix',
+            'include prefix',
+            'lib prefix',
+        ]:
+            if key not in preset: preset[key] = None
 
-                    ontology['document sha1 digest'] = hashlib.sha1(self.instruction['path'].encode('utf8')).hexdigest()
-                    self.ontology['instruction'] = merge(self.instruction, ontology)
-                    self.load_cache()
-                    if self.instruction['document sha1 digest'] not in self.cache['environment']:
-                        self.cache['environment'][self.instruction['document sha1 digest']] = { 'package': {} }
+        if not preset['home']:            preset['home'] =              '~/.pheniqs'
+        if not preset['platform']:        preset['platform'] =          platform.system()
+        if not preset['cache path']:      preset['cache path'] =        os.path.join(preset['home'], 'cache.json')
+        if not preset['install prefix']:  preset['install prefix'] =    os.path.join(preset['home'], 'install')
+        if not preset['download prefix']: preset['download prefix'] =   os.path.join(preset['home'], 'download')
+        if not preset['package prefix']:  preset['package prefix'] =    os.path.join(preset['home'], 'package')
+        if not preset['bin prefix']:      preset['bin prefix'] =        os.path.join(preset['install prefix'], 'bin')
+        if not preset['include prefix']:  preset['include prefix'] =    os.path.join(preset['install prefix'], 'include')
+        if not preset['lib prefix']:      preset['lib prefix'] =        os.path.join(preset['install prefix'], 'lib')
 
-                self.persisted_instruction = self.cache['environment'][self.instruction['document sha1 digest']]
+        for path in [
+            'home',
+            'cache path',
+            'install prefix',
+            'download prefix',
+            'package prefix',
+            'bin prefix',
+            'include prefix',
+            'lib prefix',
+        ]:
+            preset[path] = os.path.abspath(os.path.expanduser(os.path.expandvars(preset[path])))
 
-                if self.instruction['package']:
-                    self.stack['package'] = []
-                    prepare_directory(self.home, self.log)
-                    prepare_directory(self.install_prefix, self.log)
-                    prepare_directory(self.download_prefix, self.log)
-                    prepare_directory(self.package_prefix, self.log)
-                    self.stdout = io.open(os.path.join(self.home, 'output'), 'a')
-                    self.stderr = io.open(os.path.join(self.home, 'error'), 'a')
+        self.ontology['instruction'] = merge(self.instruction, preset)
+        self.load_cache()
+        if self.instruction['document sha1 digest'] not in self.cache['environment']:
+            self.cache['environment'][self.instruction['document sha1 digest']] = { 'package': {} }
 
-                    for o in self.instruction['package']:
-                        key = o['name']
-                        if key in self.package_implementation:
-                            o = merge(o, self.package_implementation[key])
+        self.persisted_instruction = self.cache['environment'][self.instruction['document sha1 digest']]
 
-                        if self.filter is None or key in self.filter:
-                            package = Package.create(self, o)
-                            if package:
-                                self.stack['package'].append(package)
-                                if self.action == 'clean':
-                                    self.log.info('cleaning %s', package.display_name)
-                                    package.clean()
+        if self.instruction['package']:
+            self.stack['package'] = []
+            prepare_directory(self.home, self.log)
+            prepare_directory(self.install_prefix, self.log)
+            prepare_directory(self.download_prefix, self.log)
+            prepare_directory(self.package_prefix, self.log)
+            self.stdout = io.open(os.path.join(self.home, 'output'), 'a')
+            self.stderr = io.open(os.path.join(self.home, 'error'), 'a')
 
-                                elif self.action == 'build':
-                                    if not package.installed:
-                                        package.install()
-                                    else:
-                                        self.log.info('%s is already installed', package.display_name)
+            for o in self.instruction['package']:
+                key = o['name']
+                if key in self.package_implementation:
+                    o = merge(o, self.package_implementation[key])
 
-                                elif self.action == 'clean.package':
-                                    self.log.info('clearing %s', package.display_name)
-                                    package.clean_package()
+                package = Package.create(self, o)
+                if package:
+                    self.stack['package'].append(package)
+                    if self.action == 'clean':
+                        self.log.info('cleaning %s', package.display_name)
+                        package.clean()
 
-                                self.save_cache()
+                    elif self.action == 'build':
+                        if not package.installed:
+                            package.install()
+                        else:
+                            self.log.info('%s is already installed', package.display_name)
+
+                    elif self.action == 'clean.package':
+                        self.log.info('clearing %s', package.display_name)
+                        package.clean_package()
+
+                    self.save_cache()
 
     def close(self):
         self.save_cache()
