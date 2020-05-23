@@ -54,6 +54,17 @@ interface_configuration = {
             "description": "Lior Galanti lior.galanti@nyu.edu NYU Center for Genomics & Systems Biology"
         },
         "prototype": {
+            "revision": {
+                "flag": [
+                    "-R",
+                    "--revision"
+                ],
+                "parameter": {
+                    "dest": "revision",
+                    "help": "git revision",
+                    "metavar": "REVISION"
+                }
+            },
             "preset": {
                 "flag": [
                     "-p",
@@ -63,10 +74,10 @@ interface_configuration = {
                     "dest": "preset",
                     "help": "build preset",
                     "metavar": "PRESET",
-                    "default": "trunk",
+                    "default": "static",
                     "choices": [
-                        "trunk",
-                        "trunk-static"
+                        "dynamic",
+                        "static"
                     ]
                 }
             },
@@ -123,7 +134,8 @@ interface_configuration = {
                 {
                     "argument": [
                         "path",
-                        "preset"
+                        "preset",
+                        "revision"
                     ],
                     "implementation": "build",
                     "instruction": {
@@ -171,9 +183,9 @@ interface_configuration = {
         }
     },
     "preset": {
-        "trunk": {
+        "dynamic": {
             "download prefix": "~/.pheniqs/download",
-            "home": "bin/trunk",
+            "home": "bin",
             "package": [
                 {
                     "make clean target": "distclean",
@@ -247,9 +259,9 @@ interface_configuration = {
                 }
             ]
         },
-        "trunk_static": {
+        "static": {
             "download prefix": "~/.pheniqs/download",
-            "home": "bin/trunk_static",
+            "home": "bin",
             "package": [
                 {
                     "make clean target": "distclean",
@@ -1331,9 +1343,27 @@ class PackageManager(object):
         elif 'preset' in self.instruction:
             if self.instruction['preset'] in self.ontology['preset'].keys():
                 preset = self.ontology['preset'][self.instruction['preset']]
-                preset['document sha1 digest'] = hashlib.sha1(self.instruction['preset'].encode('utf8')).hexdigest()
+                name = self.instruction['preset']
+                if 'revision' in self.instruction:
+                    name = '{}-{}'.format(name,self.instruction['revision'])
+                    preset['home'] = os.path.join(preset['home'], name)
+                    for package in preset['package']:
+                        if package['name'] == 'pheniqs':
+                            package['remote filename'] = 'pheniqs-{}.zip'.format(self.instruction['revision'])
+                            package['remote url'] = 'https://codeload.github.com/biosails/pheniqs/zip/{}'.format(self.instruction['revision'])
+                            package['version'] = 'git-{}'.format(self.instruction['revision'])
+                else:
+                    name = '{}-HEAD'.format(name)
+                    preset['home'] = os.path.join(preset['home'], name)
+                    for package in preset['package']:
+                        if package['name'] == 'pheniqs':
+                            package['remote filename'] = 'pheniqs-HEAD.zip'
+                            package['remote url'] = 'https://codeload.github.com/biosails/pheniqs/zip/HEAD'
+                            package['version'] = 'git-HEAD'
+
+                preset['document sha1 digest'] = hashlib.sha1(name.encode('utf8')).hexdigest()
             else:
-                raise CommandFailedError('preset {} does not exist'.format(self.ontology['preset']))
+                raise CommandFailedError('preset {} does not exist'.format(self.instruction['preset']))
         else:
             raise CommandFailedError('uknown preset to execute')
 
