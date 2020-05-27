@@ -1354,7 +1354,7 @@ class PackageManager(object):
                         if package['name'] == 'pheniqs':
                             package['make build optional'].append('PHENIQS_VERSION=git-{}'.format(self.instruction['revision']))
                             package['remote filename'] = 'pheniqs-{}.zip'.format(self.instruction['revision'])
-                            package['remote url'] = 'https://codeload.github.com/moonwatcher/pheniqs/zip/{}'.format(self.instruction['revision'])
+                            package['remote url'] = 'https://codeload.github.com/biosails/pheniqs/zip/{}'.format(self.instruction['revision'])
                             package['version'] = 'git-{}'.format(self.instruction['revision'])
                 else:
                     name = '{}-HEAD'.format(name)
