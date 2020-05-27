@@ -54,6 +54,31 @@ interface_configuration = {
             "description": "Lior Galanti lior.galanti@nyu.edu NYU Center for Genomics & Systems Biology"
         },
         "prototype": {
+            "path": {
+                "flag": [
+                    "--config"
+                ],
+                "parameter": {
+                    "help": "path",
+                    "metavar": "PATH"
+                }
+            },
+            "preset": {
+                "flag": [
+                    "-p",
+                    "--preset"
+                ],
+                "parameter": {
+                    "choices": [
+                        "dynamic",
+                        "static"
+                    ],
+                    "default": "static",
+                    "dest": "preset",
+                    "help": "build preset",
+                    "metavar": "PRESET"
+                }
+            },
             "revision": {
                 "flag": [
                     "-R",
@@ -63,31 +88,6 @@ interface_configuration = {
                     "dest": "revision",
                     "help": "git revision",
                     "metavar": "REVISION"
-                }
-            },
-            "preset": {
-                "flag": [
-                    "-p",
-                    "--preset"
-                ],
-                "parameter": {
-                    "dest": "preset",
-                    "help": "build preset",
-                    "metavar": "PRESET",
-                    "default": "static",
-                    "choices": [
-                        "dynamic",
-                        "static"
-                    ]
-                }
-            },
-            "path": {
-                "flag": [
-                    "--config"
-                ],
-                "parameter": {
-                    "help": "path",
-                    "metavar": "PATH"
                 }
             },
             "verbosity": {
