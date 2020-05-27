@@ -1034,6 +1034,9 @@ class Make(Package):
                 if self.include_prefix_in_make:
                     command.append('PREFIX={}'.format(self.install_prefix))
 
+                if self.make_build_optional:
+                    command.extend(self.make_build_optional)
+
                 self.log.debug(' '.join([str(i) for i in command]))
 
                 process = Popen(
@@ -1349,8 +1352,9 @@ class PackageManager(object):
                     preset['home'] = os.path.join(preset['home'], name)
                     for package in preset['package']:
                         if package['name'] == 'pheniqs':
+                            package['make build optional'].append('PHENIQS_VERSION=git-{}'.format(self.instruction['revision']))
                             package['remote filename'] = 'pheniqs-{}.zip'.format(self.instruction['revision'])
-                            package['remote url'] = 'https://codeload.github.com/biosails/pheniqs/zip/{}'.format(self.instruction['revision'])
+                            package['remote url'] = 'https://codeload.github.com/moonwatcher/pheniqs/zip/{}'.format(self.instruction['revision'])
                             package['version'] = 'git-{}'.format(self.instruction['revision'])
                 else:
                     name = '{}-HEAD'.format(name)
