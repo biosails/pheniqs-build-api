@@ -185,7 +185,6 @@ interface_configuration = {
     "pheniqs code url prefix": "https://codeload.github.com/moonwatcher/pheniqs",
     "preset": {
         "dynamic": {
-            "download prefix": "~/.pheniqs/download",
             "home": "bin",
             "package": [
                 {
@@ -210,7 +209,7 @@ interface_configuration = {
                 {
                     "name": "xz",
                     "remote url": [
-                        "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.gz",
+                        "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.bz2",
                         "https://tukaani.org/xz/xz-5.2.5.tar.bz2",
                         "http://albireo.bio.nyu.edu/~lg/pheniqs/xz-5.2.5.tar.bz2"
                     ],
@@ -262,7 +261,6 @@ interface_configuration = {
             ]
         },
         "static": {
-            "download prefix": "~/.pheniqs/download",
             "home": "bin",
             "package": [
                 {
@@ -290,7 +288,7 @@ interface_configuration = {
                     ],
                     "name": "xz",
                     "remote url": [
-                        "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.gz",
+                        "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.bz2",
                         "https://tukaani.org/xz/xz-5.2.5.tar.bz2",
                         "http://albireo.bio.nyu.edu/~lg/pheniqs/xz-5.2.5.tar.bz2"
                     ],
