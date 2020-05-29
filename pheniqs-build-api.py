@@ -209,31 +209,32 @@ interface_configuration = {
                 {
                     "name": "xz",
                     "remote url": [
-                        "https://tukaani.org/xz/xz-5.2.4.tar.bz2",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/xz-5.2.4.tar.bz2"
+                        "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.gz",
+                        "https://tukaani.org/xz/xz-5.2.5.tar.bz2",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/xz-5.2.5.tar.bz2"
                     ],
-                    "sha1": "50ad451279404fb5206e23c7b1ba9c4aa858c994"
+                    "sha1": "19f83fb33dc51df87169864decd4b3de75dee1df"
                 },
                 {
                     "make build optional": [
                         "CC=gcc"
                     ],
                     "name": "libdeflate",
-                    "remote filename": "libdeflate-1.0.tar.gz",
+                    "remote filename": "libdeflate-1.6.tar.gz",
                     "remote url": [
-                        "https://github.com/ebiggers/libdeflate/archive/v1.0.tar.gz",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/libdeflate-1.0.tar.gz"
+                        "https://github.com/ebiggers/libdeflate/archive/v1.6.tar.gz",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/libdeflate-1.6.tar.gz"
                     ],
-                    "sha1": "17da81b2a058906f087e797fc69399c606a2c011",
-                    "version": "1.0"
+                    "sha1": "5f45e7e81e06c5cc4b6fe208bbf84cd07bb77088",
+                    "version": "1.6"
                 },
                 {
                     "name": "htslib",
                     "remote url": [
-                        "https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/htslib-1.9.tar.bz2"
+                        "https://github.com/samtools/htslib/releases/download/1.10.2/htslib-1.10.2.tar.bz2",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/htslib-1.10.2.tar.bz2"
                     ],
-                    "sha1": "21be5187203df30637dda2e1133cae2e833ef050"
+                    "sha1": "f137100d2b3fbd214791accee43f49cb95965f1a"
                 },
                 {
                     "name": "rapidjson",
@@ -247,9 +248,9 @@ interface_configuration = {
                     "make build optional": [
                         "PHENIQS_ZLIB_VERSION=1.2.11",
                         "PHENIQS_BZIP2_VERSION=1.0.8",
-                        "PHENIQS_XZ_VERSION=5.2.4",
-                        "PHENIQS_LIBDEFLATE_VERSION=1.0",
-                        "PHENIQS_HTSLIB_VERSION=1.9",
+                        "PHENIQS_XZ_VERSION=5.2.5",
+                        "PHENIQS_LIBDEFLATE_VERSION=1.6",
+                        "PHENIQS_HTSLIB_VERSION=1.10.2",
                         "PHENIQS_RAPIDJSON_VERSION=1.1.0"
                     ],
                     "name": "pheniqs",
@@ -288,23 +289,24 @@ interface_configuration = {
                     ],
                     "name": "xz",
                     "remote url": [
-                        "https://tukaani.org/xz/xz-5.2.4.tar.bz2",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/xz-5.2.4.tar.bz2"
+                        "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.gz",
+                        "https://tukaani.org/xz/xz-5.2.5.tar.bz2",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/xz-5.2.5.tar.bz2"
                     ],
-                    "sha1": "50ad451279404fb5206e23c7b1ba9c4aa858c994"
+                    "sha1": "19f83fb33dc51df87169864decd4b3de75dee1df"
                 },
                 {
                     "make build optional": [
                         "CC=gcc"
                     ],
                     "name": "libdeflate",
-                    "remote filename": "libdeflate-1.0.tar.gz",
+                    "remote filename": "libdeflate-1.6.tar.gz",
                     "remote url": [
-                        "https://github.com/ebiggers/libdeflate/archive/v1.0.tar.gz",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/libdeflate-1.0.tar.gz"
+                        "https://github.com/ebiggers/libdeflate/archive/v1.6.tar.gz",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/libdeflate-1.6.tar.gz"
                     ],
-                    "sha1": "17da81b2a058906f087e797fc69399c606a2c011",
-                    "version": "1.0"
+                    "sha1": "5f45e7e81e06c5cc4b6fe208bbf84cd07bb77088",
+                    "version": "1.6"
                 },
                 {
                     "configure optional": [
@@ -312,10 +314,10 @@ interface_configuration = {
                     ],
                     "name": "htslib",
                     "remote url": [
-                        "https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/htslib-1.9.tar.bz2"
+                        "https://github.com/samtools/htslib/releases/download/1.10.2/htslib-1.10.2.tar.bz2",
+                        "http://albireo.bio.nyu.edu/~lg/pheniqs/htslib-1.10.2.tar.bz2"
                     ],
-                    "sha1": "21be5187203df30637dda2e1133cae2e833ef050"
+                    "sha1": "f137100d2b3fbd214791accee43f49cb95965f1a"
                 },
                 {
                     "name": "rapidjson",
@@ -333,9 +335,9 @@ interface_configuration = {
                         "with-static=1",
                         "PHENIQS_ZLIB_VERSION=1.2.11",
                         "PHENIQS_BZIP2_VERSION=1.0.8",
-                        "PHENIQS_XZ_VERSION=5.2.4",
-                        "PHENIQS_LIBDEFLATE_VERSION=1.0",
-                        "PHENIQS_HTSLIB_VERSION=1.9",
+                        "PHENIQS_XZ_VERSION=5.2.5",
+                        "PHENIQS_LIBDEFLATE_VERSION=1.6",
+                        "PHENIQS_HTSLIB_VERSION=1.10.2",
                         "PHENIQS_RAPIDJSON_VERSION=1.1.0"
                     ],
                     "name": "pheniqs",
@@ -394,7 +396,7 @@ def remove_directory(directory, log):
         )
         output, error = process.communicate()
         code = process.returncode
-        if code is not 0:
+        if code != 0:
             print(output, error, code)
             raise CommandFailedError('failed to remove directory {}'.format(directory))
 
@@ -1354,7 +1356,7 @@ class PackageManager(object):
                         if package['name'] == 'pheniqs':
                             package['make build optional'].append('PHENIQS_VERSION=git-{}'.format(self.instruction['revision']))
                             package['remote filename'] = 'pheniqs-{}.zip'.format(self.instruction['revision'])
-                            package['remote url'] = 'https://codeload.github.com/biosails/pheniqs/zip/{}'.format(self.instruction['revision'])
+                            package['remote url'] = 'https://codeload.github.com/moonwatcher/pheniqs/zip/{}'.format(self.instruction['revision'])
                             package['version'] = 'git-{}'.format(self.instruction['revision'])
                 else:
                     name = '{}-HEAD'.format(name)
@@ -1362,7 +1364,7 @@ class PackageManager(object):
                     for package in preset['package']:
                         if package['name'] == 'pheniqs':
                             package['remote filename'] = 'pheniqs-HEAD.zip'
-                            package['remote url'] = 'https://codeload.github.com/biosails/pheniqs/zip/HEAD'
+                            package['remote url'] = 'https://codeload.github.com/moonwatcher/pheniqs/zip/HEAD'
                             package['version'] = 'git-HEAD'
 
                 preset['document sha1 digest'] = hashlib.sha1(name.encode('utf8')).hexdigest()
