@@ -182,6 +182,7 @@ interface_configuration = {
             "job implementation": "pheniqs-build-api.Make"
         }
     },
+    "pheniqs code url prefix": "https://codeload.github.com/moonwatcher/pheniqs",
     "preset": {
         "dynamic": {
             "download prefix": "~/.pheniqs/download",
@@ -1347,26 +1348,19 @@ class PackageManager(object):
 
         elif 'preset' in self.instruction:
             if self.instruction['preset'] in self.ontology['preset'].keys():
-                preset = self.ontology['preset'][self.instruction['preset']]
-                name = self.instruction['preset']
+                revision = 'HEAD'
                 if 'revision' in self.instruction:
-                    name = '{}-{}'.format(name,self.instruction['revision'])
-                    preset['home'] = os.path.join(preset['home'], name)
-                    for package in preset['package']:
-                        if package['name'] == 'pheniqs':
-                            package['make build optional'].append('PHENIQS_VERSION=git-{}'.format(self.instruction['revision']))
-                            package['remote filename'] = 'pheniqs-{}.zip'.format(self.instruction['revision'])
-                            package['remote url'] = 'https://codeload.github.com/moonwatcher/pheniqs/zip/{}'.format(self.instruction['revision'])
-                            package['version'] = 'git-{}'.format(self.instruction['revision'])
-                else:
-                    name = '{}-HEAD'.format(name)
-                    preset['home'] = os.path.join(preset['home'], name)
-                    for package in preset['package']:
-                        if package['name'] == 'pheniqs':
-                            package['remote filename'] = 'pheniqs-HEAD.zip'
-                            package['remote url'] = 'https://codeload.github.com/moonwatcher/pheniqs/zip/HEAD'
-                            package['version'] = 'git-HEAD'
+                    revision = self.instruction['revision']
+                name = '{}-{}'.format(self.instruction['preset'], revision)
+                preset = self.ontology['preset'][self.instruction['preset']]
+                preset['home'] = os.path.join(preset['home'], name)
 
+                for package in preset['package']:
+                    if package['name'] == 'pheniqs':
+                        package['make build optional'].append('PHENIQS_VERSION=git-{}'.format(revision))
+                        package['remote filename'] = 'pheniqs-{}.zip'.format(revision)
+                        package['remote url'] = '{}/zip/{}'.format(self.ontology['pheniqs code url prefix'], revision)
+                        package['version'] = 'git-{}'.format(revision)
                 preset['document sha1 digest'] = hashlib.sha1(name.encode('utf8')).hexdigest()
             else:
                 raise CommandFailedError('preset {} does not exist'.format(self.instruction['preset']))
