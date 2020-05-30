@@ -33,4 +33,4 @@ fi
     execute "./$PHENIQS_INSTALLER" "build"
 )
 
-printf "Build successful. Please copy the portable Pheniqs binary at $PHENIQS_TEMP_DIRECTORY/bin/static-HEAD/install/bin/pheniqs to your path."
+printf "Build successful. Please copy the portable Pheniqs binary at $PHENIQS_TEMP_DIRECTORY/bin/static-HEAD/install/bin/pheniqs to your path.\n"
