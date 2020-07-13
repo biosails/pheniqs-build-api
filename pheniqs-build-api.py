@@ -1070,7 +1070,7 @@ class BZip2(Make):
         full_versioned_so_install_path = os.path.join(self.lib_prefix, full_versioned_so_basename)
 
         self.log.debug('copying %s to %s', full_versioned_so_package_path, full_versioned_so_install_path)
-        command = [ 'rsync', full_versioned_so_package_path, full_versioned_so_install_path ]
+        command = [ 'rsync', '--copy-links', full_versioned_so_package_path, full_versioned_so_install_path ]
         process = Popen(
             args=command,
             env=self.env,
@@ -1144,7 +1144,7 @@ class LibDeflate(Make):
             if self.package_url is not None:
                 static_library_path = os.path.join(self.package_url, 'libdeflate.a')
                 self.log.debug('copying %s to %s', static_library_path, self.lib_prefix)
-                command = [ 'rsync', static_library_path, self.lib_prefix ]
+                command = [ 'rsync', '--copy-links', static_library_path, self.lib_prefix ]
                 process = Popen(
                     args=command,
                     env=self.env,
@@ -1165,7 +1165,7 @@ class LibDeflate(Make):
 
                 library_header_path = os.path.join(self.package_url, 'libdeflate.h')
                 self.log.debug('copying %s to %s', library_header_path, self.include_prefix)
-                command = [ 'rsync', library_header_path, self.include_prefix ]
+                command = [ 'rsync', '--copy-links', library_header_path, self.include_prefix ]
                 process = Popen(
                     args=command,
                     env=self.env,
@@ -1187,7 +1187,7 @@ class LibDeflate(Make):
                 if self.platform == 'Linux':
                     dynamic_library_path = os.path.join(self.package_url, 'libdeflate.so')
                     self.log.debug('copying %s to %s', dynamic_library_path, self.lib_prefix)
-                    command = [ 'rsync', "--copy-links", dynamic_library_path, self.lib_prefix ]
+                    command = [ 'rsync', '--copy-links', dynamic_library_path, self.lib_prefix ]
                     process = Popen(
                         args=command,
                         env=self.env,
