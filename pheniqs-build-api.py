@@ -1187,7 +1187,7 @@ class LibDeflate(Make):
                 if self.platform == 'Linux':
                     dynamic_library_path = os.path.join(self.package_url, 'libdeflate.so')
                     self.log.debug('copying %s to %s', dynamic_library_path, self.lib_prefix)
-                    command = [ 'rsync', dynamic_library_path, self.lib_prefix ]
+                    command = [ 'rsync', "--copy-links", dynamic_library_path, self.lib_prefix ]
                     process = Popen(
                         args=command,
                         env=self.env,
