@@ -4,7 +4,7 @@ set -u
 PHENIQS_RELEASE_VERSION="head_static"
 PHENIQS_INSTALLER="pheniqs-build-api.py"
 PHENIQS_INSTALLER_URL="https://raw.githubusercontent.com/biosails/pheniqs-build-api/master/$PHENIQS_INSTALLER"
-PHENIQS_TEMP_DIRECTORY="/tmp/pheniqs_$PHENIQS_RELEASE_VERSION"
+PHENIQS_TEMP_DIRECTORY="~/pheniqs_$PHENIQS_RELEASE_VERSION"
 
 shell_join() {
   local arg
