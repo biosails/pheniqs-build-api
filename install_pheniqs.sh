@@ -4,7 +4,7 @@ set -u
 PHENIQS_RELEASE_VERSION="head_static"
 PHENIQS_INSTALLER="pheniqs-build-api.py"
 PHENIQS_INSTALLER_URL="https://raw.githubusercontent.com/biosails/pheniqs-build-api/master/$PHENIQS_INSTALLER"
-PHENIQS_TEMP_DIRECTORY="~/pheniqs_$PHENIQS_RELEASE_VERSION"
+PHENIQS_STAGING_DIRECTORY="$HOME/pheniqs_$PHENIQS_RELEASE_VERSION"
 
 shell_join() {
   local arg
@@ -22,15 +22,16 @@ execute() {
   fi
 }
 
-if ! [[ -d "$PHENIQS_TEMP_DIRECTORY" ]]; then
-    execute "/bin/mkdir" "-p" "$PHENIQS_TEMP_DIRECTORY"
+printf "preparing to build Pheniqs in $PHENIQS_STAGING_DIRECTORY"
+if ! [[ -d "$PHENIQS_STAGING_DIRECTORY" ]]; then
+    execute "/bin/mkdir" "-p" "$PHENIQS_STAGING_DIRECTORY"
 fi
 
 (
-    cd "$PHENIQS_TEMP_DIRECTORY";
+    cd "$PHENIQS_STAGING_DIRECTORY";
     curl -fsSLO "$PHENIQS_INSTALLER_URL";
     chmod +x $PHENIQS_INSTALLER;
     execute "./$PHENIQS_INSTALLER" "build"
 )
 
-printf "Build successful. Please copy the portable Pheniqs binary at $PHENIQS_TEMP_DIRECTORY/bin/static-HEAD/install/bin/pheniqs to your path.\n"
+printf "Please copy the portable Pheniqs binary at $PHENIQS_STAGING_DIRECTORY/bin/static-HEAD/install/bin/pheniqs to your path.\n"
