@@ -22,7 +22,7 @@ execute() {
   fi
 }
 
-printf "preparing to build Pheniqs in $PHENIQS_STAGING_DIRECTORY"
+printf "preparing to build Pheniqs in $PHENIQS_STAGING_DIRECTORY\n"
 if ! [[ -d "$PHENIQS_STAGING_DIRECTORY" ]]; then
     execute "/bin/mkdir" "-p" "$PHENIQS_STAGING_DIRECTORY"
 fi
