@@ -191,8 +191,7 @@ interface_configuration = {
                     "make clean target": "distclean",
                     "name": "zlib",
                     "remote url": [
-                        "https://zlib.net/zlib-1.2.11.tar.gz",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/zlib-1.2.11.tar.gz"
+                        "https://zlib.net/zlib-1.2.11.tar.gz"
                     ],
                     "sha1": "e6d119755acdf9104d7ba236b1242696940ed6dd"
                 },
@@ -200,8 +199,7 @@ interface_configuration = {
                     "include prefix in make": True,
                     "name": "bz2",
                     "remote url": [
-                        "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/bzip2-1.0.8.tar.gz"
+                        "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz"
                     ],
                     "sha1": "bf7badf7e248e0ecf465d33c2f5aeec774209227",
                     "version": "1.0.8"
@@ -210,8 +208,7 @@ interface_configuration = {
                     "name": "xz",
                     "remote url": [
                         "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.bz2",
-                        "https://tukaani.org/xz/xz-5.2.5.tar.bz2",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/xz-5.2.5.tar.bz2"
+                        "https://tukaani.org/xz/xz-5.2.5.tar.bz2"
                     ],
                     "sha1": "19f83fb33dc51df87169864decd4b3de75dee1df"
                 },
@@ -222,8 +219,7 @@ interface_configuration = {
                     "name": "libdeflate",
                     "remote filename": "libdeflate-1.6.tar.gz",
                     "remote url": [
-                        "https://github.com/ebiggers/libdeflate/archive/v1.6.tar.gz",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/libdeflate-1.6.tar.gz"
+                        "https://github.com/ebiggers/libdeflate/archive/v1.6.tar.gz"
                     ],
                     "sha1": "5f45e7e81e06c5cc4b6fe208bbf84cd07bb77088",
                     "version": "1.6"
@@ -231,10 +227,9 @@ interface_configuration = {
                 {
                     "name": "htslib",
                     "remote url": [
-                        "https://github.com/samtools/htslib/releases/download/1.10.2/htslib-1.10.2.tar.bz2",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/htslib-1.10.2.tar.bz2"
+                        "https://github.com/samtools/htslib/releases/download/1.11/htslib-1.11.tar.bz2"
                     ],
-                    "sha1": "f137100d2b3fbd214791accee43f49cb95965f1a"
+                    "sha1": "815b8268bfd6526c2d5fc639f5e6f7ed264dcbf7"
                 },
                 {
                     "name": "rapidjson",
@@ -267,8 +262,7 @@ interface_configuration = {
                     "make clean target": "distclean",
                     "name": "zlib",
                     "remote url": [
-                        "https://zlib.net/zlib-1.2.11.tar.gz",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/zlib-1.2.11.tar.gz"
+                        "https://zlib.net/zlib-1.2.11.tar.gz"
                     ],
                     "sha1": "e6d119755acdf9104d7ba236b1242696940ed6dd"
                 },
@@ -276,8 +270,7 @@ interface_configuration = {
                     "include prefix in make": True,
                     "name": "bz2",
                     "remote url": [
-                        "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/bzip2-1.0.8.tar.gz"
+                        "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz"
                     ],
                     "sha1": "bf7badf7e248e0ecf465d33c2f5aeec774209227",
                     "version": "1.0.8"
@@ -289,8 +282,7 @@ interface_configuration = {
                     "name": "xz",
                     "remote url": [
                         "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.bz2",
-                        "https://tukaani.org/xz/xz-5.2.5.tar.bz2",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/xz-5.2.5.tar.bz2"
+                        "https://tukaani.org/xz/xz-5.2.5.tar.bz2"
                     ],
                     "sha1": "19f83fb33dc51df87169864decd4b3de75dee1df"
                 },
@@ -301,8 +293,7 @@ interface_configuration = {
                     "name": "libdeflate",
                     "remote filename": "libdeflate-1.6.tar.gz",
                     "remote url": [
-                        "https://github.com/ebiggers/libdeflate/archive/v1.6.tar.gz",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/libdeflate-1.6.tar.gz"
+                        "https://github.com/ebiggers/libdeflate/archive/v1.6.tar.gz"
                     ],
                     "sha1": "5f45e7e81e06c5cc4b6fe208bbf84cd07bb77088",
                     "version": "1.6"
@@ -313,17 +304,15 @@ interface_configuration = {
                     ],
                     "name": "htslib",
                     "remote url": [
-                        "https://github.com/samtools/htslib/releases/download/1.10.2/htslib-1.10.2.tar.bz2",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/htslib-1.10.2.tar.bz2"
+                        "https://github.com/samtools/htslib/releases/download/1.11/htslib-1.11.tar.bz2"
                     ],
-                    "sha1": "f137100d2b3fbd214791accee43f49cb95965f1a"
+                    "sha1": "815b8268bfd6526c2d5fc639f5e6f7ed264dcbf7"
                 },
                 {
                     "name": "rapidjson",
                     "remote filename": "rapidjson-1.1.0.tar.gz",
                     "remote url": [
-                        "https://github.com/miloyip/rapidjson/archive/v1.1.0.tar.gz",
-                        "http://albireo.bio.nyu.edu/~lg/pheniqs/rapidjson-1.1.0.tar.gz"
+                        "https://github.com/miloyip/rapidjson/archive/v1.1.0.tar.gz"
                     ],
                     "sha1": "a3e0d043ad3c2d7638ffefa3beb30a77c71c869f",
                     "version": "1.1.0"
@@ -336,7 +325,7 @@ interface_configuration = {
                         "PHENIQS_BZIP2_VERSION=1.0.8",
                         "PHENIQS_XZ_VERSION=5.2.5",
                         "PHENIQS_LIBDEFLATE_VERSION=1.6",
-                        "PHENIQS_HTSLIB_VERSION=1.10.2",
+                        "PHENIQS_HTSLIB_VERSION=1.11",
                         "PHENIQS_RAPIDJSON_VERSION=1.1.0"
                     ],
                     "name": "pheniqs",
