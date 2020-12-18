@@ -71,7 +71,8 @@ interface_configuration = {
                 "parameter": {
                     "choices": [
                         "dynamic",
-                        "static"
+                        "static",
+                        "gencore"
                     ],
                     "default": "static",
                     "dest": "preset",
@@ -182,7 +183,7 @@ interface_configuration = {
             "job implementation": "pheniqs-build-api.Make"
         }
     },
-    "pheniqs code url prefix": "https://codeload.github.com/moonwatcher/pheniqs",
+    "pheniqs code url prefix": "https://codeload.github.com/biosails/pheniqs",
     "preset": {
         "dynamic": {
             "home": "bin",
