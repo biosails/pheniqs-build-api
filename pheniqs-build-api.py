@@ -218,19 +218,19 @@ interface_configuration = {
                         "CC=gcc"
                     ],
                     "name": "libdeflate",
-                    "remote filename": "libdeflate-1.6.tar.gz",
+                    "remote filename": "libdeflate-1.7.tar.gz",
                     "remote url": [
-                        "https://github.com/ebiggers/libdeflate/archive/v1.6.tar.gz"
+                        "https://github.com/ebiggers/libdeflate/archive/v1.7.tar.gz"
                     ],
-                    "sha1": "5f45e7e81e06c5cc4b6fe208bbf84cd07bb77088",
-                    "version": "1.6"
+                    "sha1": "82e3c4dddbc2b9aadcdaadbf3120b732c6cfcc88",
+                    "version": "1.7"
                 },
                 {
                     "name": "htslib",
                     "remote url": [
-                        "https://github.com/samtools/htslib/releases/download/1.11/htslib-1.11.tar.bz2"
+                        "https://github.com/samtools/htslib/releases/download/1.12/htslib-1.12.tar.bz2"
                     ],
-                    "sha1": "815b8268bfd6526c2d5fc639f5e6f7ed264dcbf7"
+                    "sha1": "8cab518f97bbdf43165320c3a4bdef1e9a42893a"
                 },
                 {
                     "name": "rapidjson",
@@ -245,8 +245,8 @@ interface_configuration = {
                         "PHENIQS_ZLIB_VERSION=1.2.11",
                         "PHENIQS_BZIP2_VERSION=1.0.8",
                         "PHENIQS_XZ_VERSION=5.2.5",
-                        "PHENIQS_LIBDEFLATE_VERSION=1.6",
-                        "PHENIQS_HTSLIB_VERSION=1.10.2",
+                        "PHENIQS_LIBDEFLATE_VERSION=1.7",
+                        "PHENIQS_HTSLIB_VERSION=1.12",
                         "PHENIQS_RAPIDJSON_VERSION=1.1.0"
                     ],
                     "name": "pheniqs",
@@ -292,12 +292,12 @@ interface_configuration = {
                         "CC=gcc"
                     ],
                     "name": "libdeflate",
-                    "remote filename": "libdeflate-1.6.tar.gz",
+                    "remote filename": "libdeflate-1.7.tar.gz",
                     "remote url": [
-                        "https://github.com/ebiggers/libdeflate/archive/v1.6.tar.gz"
+                        "https://github.com/ebiggers/libdeflate/archive/v1.7.tar.gz"
                     ],
-                    "sha1": "5f45e7e81e06c5cc4b6fe208bbf84cd07bb77088",
-                    "version": "1.6"
+                    "sha1": "82e3c4dddbc2b9aadcdaadbf3120b732c6cfcc88",
+                    "version": "1.7"
                 },
                 {
                     "configure optional": [
@@ -305,9 +305,9 @@ interface_configuration = {
                     ],
                     "name": "htslib",
                     "remote url": [
-                        "https://github.com/samtools/htslib/releases/download/1.11/htslib-1.11.tar.bz2"
+                        "https://github.com/samtools/htslib/releases/download/1.12/htslib-1.12.tar.bz2"
                     ],
-                    "sha1": "815b8268bfd6526c2d5fc639f5e6f7ed264dcbf7"
+                    "sha1": "8cab518f97bbdf43165320c3a4bdef1e9a42893a"
                 },
                 {
                     "name": "rapidjson",
@@ -325,8 +325,8 @@ interface_configuration = {
                         "PHENIQS_ZLIB_VERSION=1.2.11",
                         "PHENIQS_BZIP2_VERSION=1.0.8",
                         "PHENIQS_XZ_VERSION=5.2.5",
-                        "PHENIQS_LIBDEFLATE_VERSION=1.6",
-                        "PHENIQS_HTSLIB_VERSION=1.11",
+                        "PHENIQS_LIBDEFLATE_VERSION=1.7",
+                        "PHENIQS_HTSLIB_VERSION=1.12",
                         "PHENIQS_RAPIDJSON_VERSION=1.1.0"
                     ],
                     "name": "pheniqs",
