@@ -228,9 +228,9 @@ interface_configuration = {
                 {
                     "name": "htslib",
                     "remote url": [
-                        "https://github.com/samtools/htslib/releases/download/1.12/htslib-1.12.tar.bz2"
+                        "https://github.com/samtools/htslib/releases/download/1.13/htslib-1.13.tar.bz2"
                     ],
-                    "sha1": "8cab518f97bbdf43165320c3a4bdef1e9a42893a"
+                    "sha1": "df9e67a204ffb9595482d736bd519733a3442554"
                 },
                 {
                     "name": "rapidjson",
@@ -246,7 +246,7 @@ interface_configuration = {
                         "PHENIQS_BZIP2_VERSION=1.0.8",
                         "PHENIQS_XZ_VERSION=5.2.5",
                         "PHENIQS_LIBDEFLATE_VERSION=1.7",
-                        "PHENIQS_HTSLIB_VERSION=1.12",
+                        "PHENIQS_HTSLIB_VERSION=1.13",
                         "PHENIQS_RAPIDJSON_VERSION=1.1.0"
                     ],
                     "name": "pheniqs",
@@ -305,9 +305,9 @@ interface_configuration = {
                     ],
                     "name": "htslib",
                     "remote url": [
-                        "https://github.com/samtools/htslib/releases/download/1.12/htslib-1.12.tar.bz2"
+                        "https://github.com/samtools/htslib/releases/download/1.13/htslib-1.13.tar.bz2"
                     ],
-                    "sha1": "8cab518f97bbdf43165320c3a4bdef1e9a42893a"
+                    "sha1": "df9e67a204ffb9595482d736bd519733a3442554"
                 },
                 {
                     "name": "rapidjson",
@@ -326,7 +326,7 @@ interface_configuration = {
                         "PHENIQS_BZIP2_VERSION=1.0.8",
                         "PHENIQS_XZ_VERSION=5.2.5",
                         "PHENIQS_LIBDEFLATE_VERSION=1.7",
-                        "PHENIQS_HTSLIB_VERSION=1.12",
+                        "PHENIQS_HTSLIB_VERSION=1.13",
                         "PHENIQS_RAPIDJSON_VERSION=1.1.0"
                     ],
                     "name": "pheniqs",
